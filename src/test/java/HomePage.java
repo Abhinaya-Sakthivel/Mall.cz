@@ -61,19 +61,19 @@ public class HomePage {
             Assert.assertEquals(result3, 15);
 
         System.out.println("Testcase4 - Check Section 4 contains 15 items, if not fail test case");
-            long result4 = getAllProductCount(navigationSection2);
+            long result4 = getAllProductCount(navigationSection4);
             Assert.assertEquals(result4, 15);
 
         System.out.println("Testcase5 - Check Section 5 contains 15 items, if not fail test case");
-            long result5 = getAllProductCount(navigationSection2);
+            long result5 = getAllProductCount(navigationSection5);
             Assert.assertEquals(result5, 15);
 
         System.out.println("Testcase6 - Check Section 6 contains 15 items, if not fail test case");
-            long result6 = getAllProductCount(navigationSection2);
+            long result6 = getAllProductCount(navigationSection6);
             Assert.assertEquals(result6, 15);
 
         System.out.println("Testcase7 - Check Section 7 contains 15 items, if not fail test case");
-            long result7 = getAllProductCount(navigationSection2);
+            long result7 = getAllProductCount(navigationSection7);
             Assert.assertEquals(result7, 15);
 
         driver.quit();
