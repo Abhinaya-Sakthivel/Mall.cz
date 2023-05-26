@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class HomePage1 {
+public class HomePage {
     static WebDriver driver;
     static String navigationSection1 = "(//button[@type='button'])[3]";
     static String navigationSection2 = "(//button[@type='button'])[5]";
