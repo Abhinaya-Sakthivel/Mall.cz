@@ -39,39 +39,39 @@ public class HomePage {
 //        options.setExperimentalOption("useAutomationExtension", false);
 
 
-        public void checkFirstCorousel() throws InterruptedException {
+        public void checkFirstCarousel() throws InterruptedException {
             System.out.println("Testcase1 - Check Section 1 15 items, if not fail test case");
             int result1 = getAllProductCount(navigationSection1);
             Assert.assertEquals(result1, 15);
         }
-        public void checkSecondCorousel() throws InterruptedException {
+        public void checkSecondCarousel() throws InterruptedException {
             System.out.println("Testcase2 - Check Section 2 contains 15 items, if not fail test case");
             int result2 = getAllProductCount(navigationSection2);
             Assert.assertEquals(result2, 15);
         }
 
-        public void checkThirdCorousel() throws InterruptedException {
+        public void checkThirdCarousel() throws InterruptedException {
             System.out.println("Testcase3 - Check Section 3 contains 15 items, if not fail test case");
             int result3 = getAllProductCount(navigationSection3);
             Assert.assertEquals(result3, 15);
         }
-        public void checkFourthCorousel() throws InterruptedException {
+        public void checkFourthCarousel() throws InterruptedException {
             System.out.println("Testcase4 - Check Section 4 contains 15 items, if not fail test case");
             int result4 = getAllProductCount(navigationSection4);
             Assert.assertEquals(result4, 15);
             }
 
-        public void checkFifthhCorousel() throws InterruptedException {
+        public void checkFifthhCarousel() throws InterruptedException {
             System.out.println("Testcase5 - Check Section 5 contains 15 items, if not fail test case");
             int result5 = getAllProductCount(navigationSection5);
             Assert.assertEquals(result5, 15);
         }
-        public void checkSixthCorousel() throws InterruptedException {
+        public void checkSixthCarousel() throws InterruptedException {
             System.out.println("Testcase6 - Check Section 6 contains 15 items, if not fail test case");
             int result6 = getAllProductCount(navigationSection6);
             Assert.assertEquals(result6, 15);
         }
-        public void checkSeventhCorousel() throws InterruptedException {
+        public void checkSeventhCarousel() throws InterruptedException {
             System.out.println("Testcase7 - Check Section 7 contains 15 items, if not fail test case");
             int result7 = getAllProductCount(navigationSection7);
             Assert.assertEquals(result7, 15);
@@ -80,13 +80,13 @@ public class HomePage {
 
 
     public  int getAllProductCount(String goToSection) throws InterruptedException {
-        //get the corousel section to test
+        //get the carousel section to test
         selectSection(goToSection);
         return getProductCount(goToSection);
     }
 
     public  void selectSection(String goToSection) throws InterruptedException {
-            //Scroll to each corousel section
+            //Scroll to each carousel section
         Actions action = new Actions(driver);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
 

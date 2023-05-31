@@ -22,13 +22,13 @@ public class MainTest {
     @Test
     public void verify() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
-        homePage.checkFirstCorousel();
-        homePage.checkSecondCorousel();
-        homePage.checkThirdCorousel();
-        homePage.checkFourthCorousel();
-        homePage.checkFifthhCorousel();
-        homePage.checkSixthCorousel();
-        homePage.checkSeventhCorousel();
+        homePage.checkFirstCarousel();
+        homePage.checkSecondCarousel();
+        homePage.checkThirdCarousel();
+        homePage.checkFourthCarousel();
+        homePage.checkFifthhCarousel();
+        homePage.checkSixthCarousel();
+        homePage.checkSeventhCarousel();
     }
 
     @AfterTest
