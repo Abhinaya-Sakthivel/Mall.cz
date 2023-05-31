@@ -1,5 +1,4 @@
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -11,7 +10,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class HomePage {
-    static WebDriver driver;
+     WebDriver driver;
+    public HomePage(WebDriver driver) {
+        this.driver = driver;
+    }
     static String navigationSection1 = "(//button[@type='button'])[3]";
     static String navigationSection2 = "(//button[@type='button'])[5]";
     static String navigationSection3 = "(//button[@type='button'])[7]";
@@ -20,73 +22,71 @@ public class HomePage {
     static String navigationSection6 = "(//button[@type='button'])[13]";
     static String navigationSection7 = "(//button[@type='button'])[15]";
 
-    public static void main(String[] args) throws InterruptedException {
+//    public static void main(String[] args) throws InterruptedException {
 //        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+//
+//        // Create ChromeOptions object
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--remote-allow-origins=*");
+//        options.addArguments("--disable-extensions");
+//        options.addArguments("--disable-popup-blocking");
+//        options.addArguments("--disable-infobars");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--disable-browser-side-navigation");
+//        options.addArguments("--disable-blink-features=AutomationControlled");
+//        options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
+//        options.setExperimentalOption("useAutomationExtension", false);
 
 
-        System.setProperty("webdriver.chrome.driver","/Users/abhi.sakthivel/Downloads/chromedriver_mac64/chromedriver");
-
-        // Create ChromeOptions object
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--disable-popup-blocking");
-        options.addArguments("--disable-infobars");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-browser-side-navigation");
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
-        options.setExperimentalOption("useAutomationExtension", false);
-
-
-        driver = new ChromeDriver(options);
-        //Open the website
-        driver.get("https://www.mall.cz/");
-        driver.manage().window().maximize();
-        Thread.sleep(3000);
-        System.out.println(driver.getTitle());
-        Thread.sleep(10000);
-
-        System.out.println("Testcase1 - Check Section 1 15 items, if not fail test case");
-            long result1 = getAllProductCount(navigationSection1);
+        public void checkFirstCorousel() throws InterruptedException {
+            System.out.println("Testcase1 - Check Section 1 15 items, if not fail test case");
+            int result1 = getAllProductCount(navigationSection1);
             Assert.assertEquals(result1, 15);
-
-        System.out.println("Testcase2 - Check Section 2 contains 15 items, if not fail test case");
-            long result2 = getAllProductCount(navigationSection2);
+        }
+        public void checkSecondCorousel() throws InterruptedException {
+            System.out.println("Testcase2 - Check Section 2 contains 15 items, if not fail test case");
+            int result2 = getAllProductCount(navigationSection2);
             Assert.assertEquals(result2, 15);
+        }
 
-        System.out.println("Testcase3 - Check Section 3 contains 15 items, if not fail test case");
-            long result3 = getAllProductCount(navigationSection3);
+        public void checkThirdCorousel() throws InterruptedException {
+            System.out.println("Testcase3 - Check Section 3 contains 15 items, if not fail test case");
+            int result3 = getAllProductCount(navigationSection3);
             Assert.assertEquals(result3, 15);
-
-        System.out.println("Testcase4 - Check Section 4 contains 15 items, if not fail test case");
-            long result4 = getAllProductCount(navigationSection4);
+        }
+        public void checkFourthCorousel() throws InterruptedException {
+            System.out.println("Testcase4 - Check Section 4 contains 15 items, if not fail test case");
+            int result4 = getAllProductCount(navigationSection4);
             Assert.assertEquals(result4, 15);
+            }
 
-        System.out.println("Testcase5 - Check Section 5 contains 15 items, if not fail test case");
-            long result5 = getAllProductCount(navigationSection5);
+        public void checkFifthhCorousel() throws InterruptedException {
+            System.out.println("Testcase5 - Check Section 5 contains 15 items, if not fail test case");
+            int result5 = getAllProductCount(navigationSection5);
             Assert.assertEquals(result5, 15);
-
-        System.out.println("Testcase6 - Check Section 6 contains 15 items, if not fail test case");
-            long result6 = getAllProductCount(navigationSection6);
+        }
+        public void checkSixthCorousel() throws InterruptedException {
+            System.out.println("Testcase6 - Check Section 6 contains 15 items, if not fail test case");
+            int result6 = getAllProductCount(navigationSection6);
             Assert.assertEquals(result6, 15);
-
-        System.out.println("Testcase7 - Check Section 7 contains 15 items, if not fail test case");
-            long result7 = getAllProductCount(navigationSection7);
+        }
+        public void checkSeventhCorousel() throws InterruptedException {
+            System.out.println("Testcase7 - Check Section 7 contains 15 items, if not fail test case");
+            int result7 = getAllProductCount(navigationSection7);
             Assert.assertEquals(result7, 15);
+        }
 
-        driver.quit();
 
-    }
-    public static long getAllProductCount(String goToSection) throws InterruptedException {
 
+    public  int getAllProductCount(String goToSection) throws InterruptedException {
+        //get the corousel section to test
         selectSection(goToSection);
         return getProductCount(goToSection);
     }
 
-    public static void selectSection(String goToSection) throws InterruptedException {
-        System.out.println("inside select section");
+    public  void selectSection(String goToSection) throws InterruptedException {
+            //Scroll to each corousel section
         Actions action = new Actions(driver);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
 
@@ -104,8 +104,8 @@ public class HomePage {
     }
 
 
-    public static long getProductCount(String getItem) throws InterruptedException {
-        System.out.println("inside get product count by clicking Corousel");
+    public  int getProductCount(String getItem) throws InterruptedException {
+        // after reaching the section, get the items count
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         List<String> itemsToAdd = new ArrayList<>();
 
@@ -119,7 +119,7 @@ public class HomePage {
             Thread.sleep(1000);
         }
         while (true);
-        long total_items = itemsToAdd.stream().distinct().count();
+        int total_items = (int) itemsToAdd.stream().distinct().count();
         System.out.println("count of items"+total_items);
         return total_items;
     }
